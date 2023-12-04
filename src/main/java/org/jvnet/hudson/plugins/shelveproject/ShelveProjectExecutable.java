@@ -1,6 +1,7 @@
 package org.jvnet.hudson.plugins.shelveproject;
 
 import com.cloudbees.hudson.plugins.folder.AbstractFolder;
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.FilePath;
 import hudson.Plugin;
 import hudson.model.AbstractProject;
@@ -13,7 +14,6 @@ import hudson.util.io.ArchiverFactory;
 import jenkins.model.Jenkins;
 import org.apache.tools.ant.types.selectors.SelectorUtils;
 
-import javax.annotation.Nonnull;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -127,7 +127,7 @@ public class ShelveProjectExecutable implements Queue.Executable {
     }
   }
 
-  private static String escapeForPropertiesFile(@Nonnull String path) {
+  private static String escapeForPropertiesFile(@NonNull String path) {
     // Windows is using \ while it's an escape character in properties files
     return path.replaceAll("\\\\", java.util.regex.Matcher.quoteReplacement("\\\\"));
   }

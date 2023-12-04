@@ -3,10 +3,11 @@ package org.jvnet.hudson.plugins.shelveproject;
 import hudson.model.*;
 import hudson.model.queue.CauseOfBlockage;
 import hudson.model.queue.SubTask;
+
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.security.ACL;
 import org.acegisecurity.Authentication;
 
-import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -95,12 +96,12 @@ public class ShelveProjectTask implements Queue.FlyweightTask, Queue.TransientTa
     return getName();
   }
 
-  @Nonnull
+  @NonNull
   public Authentication getDefaultAuthentication() {
     return ACL.SYSTEM;
   }
 
-  @Nonnull
+  @NonNull
   @Override
   public Authentication getDefaultAuthentication(Queue.Item item) {
     return getDefaultAuthentication();
